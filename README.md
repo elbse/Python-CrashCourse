@@ -44,7 +44,7 @@ I’m using this space to track my progress, take notes, and commit code example
 - [x] Variables and Data Types  
 - [x] Basic Operators and Expressions  
 - [x] User Input (`input()`)  
-- [ ] Conditional Statements (`if`, `elif`, `else`)  
+- [x] Conditional Statements (`if`, `elif`, `else`)  
 - [ ] Loops (`for`, `while`)  
 - [ ] Type Conversion and Casting  
 - [ ] Comments and Code Style (PEP 8)  
