@@ -1,0 +1,148 @@
+🧩 Lesson 2: Control Flow in Python
+
+Python uses indentation (tabs/spaces) instead of {} for code blocks.
+👉 Usually 4 spaces per indent.
+
+🔹 1. Conditional Statements (if, elif, else)
+age = 18
+
+if age < 18:
+    print("You are a minor.")
+elif age == 18:
+    print("You just became an adult!")
+else:
+    print("You are an adult.")
+
+
+➡ No parentheses needed (though allowed).
+➡ Indentation defines scope — no curly braces!
+
+🧠 Quick Note:
+
+Comparisons work as expected:
+
+==  # equal
+!=  # not equal
+<, <=, >, >=
+
+
+And logical operators:
+
+and, or, not
+
+🔹 2. Example: Even or Odd Checker
+number = int(input("Enter a number: "))
+
+if number % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+
+🔹 3. Loops — for and while
+👉 for loop
+
+Python’s for loop iterates over any sequence (list, string, etc.)
+
+for i in range(5):
+    print(i)
+
+
+Output:
+
+0
+1
+2
+3
+4
+
+
+You can specify a start and step:
+
+for i in range(1, 10, 2):
+    print(i)
+
+
+→ prints odd numbers from 1 to 9
+
+🧩 How range(start, stop, step) Works
+
+The range() function generates a sequence of numbers using three parameters:
+
+range(start, stop, step)
+
+
+start → where to begin (inclusive)
+
+stop → where to end (exclusive → it stops before this number)
+
+step → how much to increment each time
+
+⚙️ Applying to range(1, 10, 2)
+Parameter	Meaning	Value
+start	Start counting from	1
+stop	Stop before	10
+step	Add this amount each loop	2
+
+So Python counts like this:
+
+Start at 1
+Next = 1 + 2 → 3
+Next = 3 + 2 → 5
+Next = 5 + 2 → 7
+Next = 7 + 2 → 9
+Next = 9 + 2 → 11 → stop (because 11 ≥ 10)
+
+
+✅ Output:
+
+1
+3
+5
+7
+9
+
+👉 while loop
+count = 0
+while count < 5:
+    print("Count is:", count)
+    count += 1
+
+
+Be careful — if you forget to update count, it loops forever 😅
+
+🔹 4. Loop Control Statements
+for i in range(10):
+    if i == 5:
+        break       # stop the loop
+    if i % 2 == 0:
+        continue    # skip even numbers
+    print(i)
+
+🔹 5. Nested Loops and Conditionals
+
+You can nest conditionals and loops easily:
+
+for i in range(3):
+    for j in range(2):
+        print(f"i={i}, j={j}")
+
+💪 Exercise Time!
+
+Try to write these small scripts on your own 👇
+
+Grading System
+Ask the user for a score (0–100) and print:
+
+A (90–100)
+B (80–89)
+C (70–79)
+D (60–69)
+F (below 60)
+
+
+Sum of Numbers
+Use a for loop to calculate the sum of numbers from 1 to N,
+where N is input from the user.
+
+Countdown Timer
+Use a while loop to count down from 10 to 1, then print “Blast off 🚀!”
