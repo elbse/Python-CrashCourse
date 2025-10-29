@@ -1,0 +1,70 @@
+🧩 Lesson 1: Python Basics & Syntax
+🔹 1. Your First Python Program
+
+In Python, you don’t need to define types or use semicolons.
+
+print("Hello, World!")
+
+
+That’s it — no public static void main. 😄
+
+Run this in:
+
+VS Code terminal, or
+
+Online at https://replit.com
+ or https://python.org/shell
+
+🔹 2. Variables and Data Types
+
+Python automatically infers types:
+
+name = "Alice"        # string
+age = 22              # integer
+height = 5.7          # float
+is_student = True     # boolean
+
+print(name, age, height, is_student)
+
+
+You can check a variable’s type using:
+
+print(type(age))
+
+🔹 3. Basic Operations
+x = 10
+y = 3
+
+print(x + y)   # addition
+print(x - y)   # subtraction
+print(x * y)   # multiplication
+print(x / y)   # float division
+print(x // y)  # integer division
+print(x % y)   # remainder
+print(x ** y)  # exponent (10³ = 1000)
+
+🔹 4. Strings and f-Strings
+name = "Alice"
+age = 22
+
+print("My name is " + name + " and I am " + str(age) + " years old.")
+print(f"My name is {name} and I am {age} years old.")  # modern and clean
+
+🔹 5. Getting Input
+name = input("Enter your name: ")
+print(f"Hello, {name}!")
+
+
+(In online IDEs, input() may prompt below the console.)
+
+💪 Quick Exercise (Your Turn!)
+
+Try to write a short script that:
+
+Asks the user for their name and birth year.
+
+Calculates their age (assuming the current year is 2025).
+
+Prints:
+
+Hello Alice, you are 20 years old.

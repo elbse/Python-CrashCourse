@@ -1,0 +1,15 @@
+# x = 20
+# y = 10 
+
+# print(x + y)
+# print(x - y)
+# print(x * y)
+# print(x / y)
+# print(x // y)
+# print (x % y)
+# print (x ** y)
+
+name = input("Enter your name:")
+age = input("Enter your age:")
+
+print(f"My name is {name} and I am {age} years old.")
