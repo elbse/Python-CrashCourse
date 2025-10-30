@@ -1,0 +1,102 @@
+🧩 Lesson 3: Functions & Data Collections
+🔹 1. Functions — Reusable Blocks of Code
+
+A function lets you group code and reuse it.
+
+Basic syntax:
+def greet():
+    print("Hello, world!")
+
+greet()  # Call the function
+
+Parameters and Arguments:
+def greet(name):
+    print(f"Hello, {name}!")
+
+greet("Alice")
+
+Return values:
+def add(a, b):
+    return a + b
+
+result = add(3, 5)
+print(result)
+
+Default parameters:
+def greet(name="friend"):
+    print(f"Hello, {name}!")
+
+greet()          # Hello, friend!
+greet("David")   # Hello, David!
+
+Keyword arguments:
+def describe_person(name, age):
+    print(f"{name} is {age} years old.")
+
+describe_person(age=25, name="Alice")
+
+💪 Try it yourself
+
+Write a function named calculate_area() that:
+Takes length and width as arguments
+Returns the area of a rectangle
+Prints the result
+
+🔹 2. Lists — Ordered, Mutable Collections
+fruits = ["apple", "banana", "cherry"]
+print(fruits[0])        # apple
+fruits.append("orange") # add item
+fruits.remove("banana") # remove item
+print(fruits)
+
+Useful list methods:
+numbers = [5, 3, 8, 1]
+numbers.sort()    # [1, 3, 5, 8]
+numbers.reverse() # [8, 5, 3, 1]
+print(len(numbers))
+
+🔹 3. Tuples — Ordered, Immutable Collections
+coordinates = (10, 20)
+print(coordinates[0])  # 10
+# coordinates[0] = 5   ❌ Error (can’t modify)
+
+🔹 4. Sets — Unordered, Unique Elements
+numbers = {1, 2, 2, 3, 4}
+print(numbers)   # {1, 2, 3, 4}
+numbers.add(5)
+numbers.remove(3)
+
+🔹 5. Dictionaries — Key-Value Pairs
+person = {
+    "name": "Alice",
+    "age": 22,
+    "city": "New York"
+}
+
+print(person["name"])
+person["job"] = "Engineer"
+print(person)
+
+
+Iterate through:
+
+for key, value in person.items():
+    print(key, ":", value)
+
+💪 Exercises
+
+Grocery List App
+    Create a list of grocery items.
+    Add a new item from user input.
+    Print the updated list.
+
+Student Info Dictionary
+    Ask the user for name, age, and grade.
+    Store it in a dictionary and print it neatly.
+
+Mini Challenge: Average Calculator
+    Create a function average(numbers) that takes a list and returns the average.
+
+Example:
+
+print(average([3, 5, 7]))  # Output: 5.0
