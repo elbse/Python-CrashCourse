@@ -1,0 +1,120 @@
+🧩 Lesson 4: File Handling & Error Handling
+🔹 Part 1: File Handling
+
+Python makes it very easy to work with files — whether you’re reading text, writing logs, or saving data.
+
+🗂️ Opening a File
+
+Syntax:
+
+open(filename, mode)
+
+
+Common modes:
+
+Mode	Description
+'r'	Read (default)
+'w'	Write (overwrite if file exists)
+'a'	Append (add to end of file)
+'x'	Create (error if file exists)
+'r+'	Read & write
+📖 Reading a File
+
+Create a file example.txt first with some text, then:
+
+file = open("example.txt", "r")
+content = file.read()
+print(content)
+file.close()
+
+
+✅ Always close files after using them.
+
+✅ Better Way: Use with (Automatic Close)
+with open("example.txt", "r") as file:
+    content = file.read()
+    print(content)
+
+
+with automatically closes the file — even if an error occurs.
+This is called a context manager.
+
+✍️ Writing to a File
+with open("output.txt", "w") as file:
+    file.write("Hello, Python!\n")
+    file.write("Learning file handling is fun!")
+
+
+💡 If output.txt doesn’t exist, Python creates it.
+If it does exist, it will be overwritten.
+
+➕ Appending to a File
+with open("output.txt", "a") as file:
+    file.write("\nAdding more content at the end.")
+
+🔍 Reading Line by Line
+with open("example.txt", "r") as file:
+    for line in file:
+        print(line.strip())  # strip() removes newline
+
+💪 Try it yourself:
+
+Create a text file called notes.txt.
+
+Write three lines into it using Python.
+
+Then open it again and print each line.
+
+⚠️ Part 2: Error Handling (Try / Except)
+
+Programs often crash when something unexpected happens — like dividing by zero, or the user typing text instead of a number.
+
+Python gives us a safe way to handle that with try and except.
+
+🔹 Basic Example
+try:
+    x = int(input("Enter a number: "))
+    print(10 / x)
+except:
+    print("Something went wrong!")
+
+
+If you type 0 or a letter — it won’t crash, it’ll print the message instead.
+
+🔹 Handling Specific Errors
+try:
+    x = int(input("Enter a number: "))
+    print(10 / x)
+except ValueError:
+    print("You didn’t enter a valid number!")
+except ZeroDivisionError:
+    print("You can’t divide by zero!")
+
+🔹 The finally Block
+
+finally always runs, whether there’s an error or not.
+
+try:
+    file = open("data.txt", "r")
+    content = file.read()
+except FileNotFoundError:
+    print("File not found.")
+finally:
+    print("Done trying to read the file.")
+
+💪 Exercises
+
+Safe Division
+    Ask the user for two numbers.
+    Divide them and handle:
+        ZeroDivisionError
+        ValueError
+
+File Reader
+    Ask the user for a filename.
+    Try to open and print it.
+    If it doesn’t exist, print a friendly message instead of crashing.
+
+Write & Read
+    Write user input to a file (like notes).
+    Then read it back and display it.
