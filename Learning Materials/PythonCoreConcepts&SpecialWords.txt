@@ -170,13 +170,13 @@ dog1.bark()
 Here, bark() is a method of the Dog class.
 
 🧮 15. Operator
-Type	Examples
-Arithmetic	+ - * / % ** //
-Comparison	== != > < >= <=
-Logical	and or not
-Assignment	= += -=
-Membership	in, not in
-Identity	is, is not
+Type	         Examples
+Arithmetic	    + - * / % ** //
+Comparison	    == != > < >= <=
+Logical	        and or not
+Assignment  	= += -=
+Membership	    in, not in
+Identity	    is, is not
 🧾 16. Keyword
 
 Reserved words you can’t use as identifiers.
@@ -191,12 +191,12 @@ import keyword
 print(keyword.kwlist)
 
 🧩 Summary
-Concept	Description	Example
-Expression	Code that produces a value	2 + 3
-Statement	Instruction that does something	x = 5
-Function	Named block of code	def greet():
-Method	Function tied to an object	"hi".upper()
-Variable	Stores a value	name = "Charisse"
-Class	Template for objects	class Dog:
-Object	Instance of a class	dog1 = Dog()
-Exception	Runtime error	ZeroDivisionError
+Concept	          Description	                      Example
+Expression	    Code that produces a value	         2 + 3
+Statement	    Instruction that does something	     x = 5
+Function	    Named block of code	               def greet():
+Method	        Function tied to an object	       "hi".upper()
+Variable	    Stores a value	                  name = "Charisse"
+Class	        Template for objects	            class Dog:
+Object	        Instance of a class	                dog1 = Dog()
+Exception	    Runtime error	                 ZeroDivisionError
