@@ -200,3 +200,72 @@ Variable	    Stores a value	                  name = "Charisse"
 Class	        Template for objects	            class Dog:
 Object	        Instance of a class	                dog1 = Dog()
 Exception	    Runtime error	                 ZeroDivisionError
+
+🧩 Definition: Parameter vs. Argument
+🔹 Parameter
+
+A parameter is a variable that is listed inside the parentheses in a function definition.
+It acts as a placeholder for a value that will be passed later.
+
+✅ Example:
+
+def greet(name):   # ← 'name' is a parameter
+    print(f"Hello, {name}!")
+
+
+Here, name is a parameter — it defines what kind of input the function expects.
+
+🔹 Argument
+
+An argument is the actual value you pass into a function when calling it.
+
+✅ Example:
+
+greet("Charisse")  # ← "Charisse" is an argument
+
+
+So when you call the function, "Charisse" is the argument that gets assigned to the parameter name.
+
+🧠 In Short
+Term	Definition	Example
+Parameter	Variable in the function definition	def greet(name): → name
+Argument	Actual value passed during function call	greet("Charisse") → "Charisse"
+⚙️ Visual Representation
+def greet(name):   # 'name' → parameter
+    print(f"Hello, {name}!")
+
+greet("Charisse")  # "Charisse" → argument
+
+
+When the code runs:
+
+Parameter: name = Argument: "Charisse"
+
+
+Output:
+
+Hello, Charisse!
+
+🧩 Analogy
+
+Think of a parameter like a labeled box,
+and the argument like the object you put inside it.
+
+Function defines the box → def greet(name):
+
+You call the function and give it something → greet("Charisse")
+
+🧾 Bonus: Types of Arguments in Python
+Type	Description	Example
+Positional	Passed by order	greet("Charisse")
+Keyword	Passed by name	greet(name="Charisse")
+Default	Uses a default if not given	def greet(name="friend"):
+Variable-length (*args)	Many positional args	def add(*args):
+Variable keyword (**kwargs)	Many key=value args	def info(**kwargs):
+
+✅ Quick Summary
+
+Concept	Parameter	Argument
+Where used	Function definition	Function call
+What it is	Variable name	Actual data/value
+Example	def add(a, b):	add(5, 3)
