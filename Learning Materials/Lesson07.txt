@@ -1,0 +1,98 @@
+🧠 Lesson 7 — File Handling & Exception Handling
+
+We’ll cover two major skills that make your Python programs more realistic and reliable:
+
+File Handling — saving and reading data from files 📁
+
+Exception Handling — making sure your program doesn’t crash when users make mistakes ⚡
+
+⚙️ PART 1: File Handling
+
+Python lets you create, read, write, and append files easily.
+
+✳️ Opening a File
+file = open("data.txt", "w")  # 'w' means write mode
+file.write("Hello, Python!")
+file.close()
+
+
+✅ After running, check your folder — you’ll see data.txt created.
+
+✳️ Reading a File
+file = open("data.txt", "r")  # 'r' means read mode
+content = file.read()
+print(content)
+file.close()
+
+✳️ Appending Data
+file = open("data.txt", "a")  # 'a' means append mode
+file.write("\nThis line was added later.")
+file.close()
+
+✳️ Using with (Best Practice)
+
+You can automatically close the file with this cleaner method:
+
+with open("data.txt", "r") as file:
+    content = file.read()
+    print(content)
+
+
+➡️ No need for file.close(). Python closes it automatically!
+
+🧱 File Modes Summary
+Mode	Meaning	Behavior
+"r"	Read	Opens file; error if not found
+"w"	Write	Creates new file or overwrites existing
+"a"	Append	Adds content to the end of file
+"x"	Create	Creates new file, error if exists
+"r+"	Read + Write	Opens file for both reading and writing
+⚡ PART 2: Exception Handling
+
+Even a small typo in input can crash your program 😬
+For example:
+
+age = int(input("Enter your age: "))  # what if user types “hello”?
+
+
+That causes a ValueError.
+
+✳️ Basic Try–Except
+try:
+    age = int(input("Enter your age: "))
+    print(f"You are {age} years old.")
+except ValueError:
+    print("❌ Please enter a valid number.")
+
+✳️ Multiple Exceptions
+try:
+    num1 = int(input("Enter number 1: "))
+    num2 = int(input("Enter number 2: "))
+    print(num1 / num2)
+except ValueError:
+    print("❌ You must enter numbers only.")
+except ZeroDivisionError:
+    print("❌ Cannot divide by zero.")
+
+✳️ Finally Block
+try:
+    file = open("data.txt", "r")
+    print(file.read())
+except FileNotFoundError:
+    print("❌ File not found.")
+finally:
+    print("✅ File operation complete.")
+
+
+finally always runs — even if there’s an error.
+
+🧠 Real-World Application: Safer Bank App
+
+Let’s improve your Bank System’s deposit and withdrawal inputs
+so the program won’t crash if the user types letters.
+
+try:
+    amount = float(input("Enter deposit amount: "))
+    acc.deposit(amount)
+except ValueError:
+    print("❌ Please enter a valid number.")
