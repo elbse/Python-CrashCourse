@@ -45,7 +45,7 @@ I’m using this space to track my progress, take notes, and commit code example
 - [x] Basic Operators and Expressions  
 - [x] User Input (`input()`)  
 - [x] Conditional Statements (`if`, `elif`, `else`)  
-- [ ] Loops (`for`, `while`)  
+- [x] Loops (`for`, `while`)  
 - [ ] Type Conversion and Casting  
 - [ ] Comments and Code Style (PEP 8)  
 
@@ -56,14 +56,14 @@ I’m using this space to track my progress, take notes, and commit code example
 <details>
 <summary>⚙️ <strong>Functions & Data Structures</strong></summary>
 
-- [ ] Defining and calling functions  
-- [ ] Parameters and return values  
+- [x] Defining and calling functions  
+- [x] Parameters and return values  
 - [ ] Default and keyword arguments  
 - [ ] Lists and list operations  
 - [ ] Tuples, Sets, and Dictionaries  
 - [ ] List comprehensions  
 - [ ] Nested data structures  
-- [ ] Practical mini-project: **Simple Calculator**  
+- [x] Practical mini-project: **Simple Calculator**  
 
 </details>
 
