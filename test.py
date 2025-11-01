@@ -42,5 +42,9 @@ print(course.get_average_grade())
 
 
 
+def greet(name):
+    return (f"Hello, {name}!")
+
+print(greet("Alice"))
     
         
