@@ -1,0 +1,174 @@
+🧩 Lesson 5: Functions & Methods (In-Depth)
+🧠 What is a Function?
+
+A function is a reusable block of code that performs a specific task.
+Functions help make your programs cleaner, organized, and easier to maintain.
+
+✨ Syntax:
+def function_name(parameters):
+    # code block
+    return result
+
+
+✅ Example:
+
+def greet(name):
+    return f"Hello, {name}!"
+
+
+Calling a function:
+
+print(greet("Charisse"))
+
+
+Output:
+
+Hello, Charisse!
+
+⚙️ Parts of a Function
+Part	Description	Example
+def	keyword to define a function	def greet():
+function_name	name of your function	greet
+parameters	input values	name
+return	output value	return f"Hi, {name}"
+🧾 Parameters vs. Arguments
+
+Parameters → variables inside the function definition
+
+Arguments → actual values you pass when calling the function
+
+✅ Example:
+
+def add(a, b):     # a and b are parameters
+    return a + b
+
+print(add(5, 3))   # 5 and 3 are arguments
+
+🔹 Default Parameters
+
+If you don’t pass a value, the default will be used.
+
+def greet(name="friend"):
+    print(f"Hello, {name}!")
+
+greet()           # Hello, friend!
+greet("Charisse") # Hello, Charisse!
+
+🔹 Keyword Arguments
+
+You can pass arguments by name instead of order.
+
+def intro(name, age):
+    print(f"{name} is {age} years old.")
+
+intro(age=22, name="Charisse")
+
+🔹 Return Statement
+
+return sends a value back to where the function was called.
+
+def multiply(x, y):
+    return x * y
+
+result = multiply(3, 4)
+print(result)   # 12
+
+
+If you don’t use return, Python returns None.
+
+🧮 Multiple Return Values
+
+Python can return more than one value — as a tuple.
+
+def stats(a, b):
+    return a + b, a * b
+
+sum_, product = stats(3, 5)
+print(sum_, product)  # 8 15
+
+🔄 Variable-Length Arguments
+
+Sometimes, you don’t know how many arguments you’ll get.
+
+➕ *args — for many positional arguments
+def add_numbers(*args):
+    return sum(args)
+
+print(add_numbers(1, 2, 3, 4))  # 10
+
+🧩 **kwargs — for many keyword arguments
+def show_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+show_info(name="Charisse", age=22, course="CS")
+
+🧱 Built-in Functions (You Already Use Them!)
+
+Python comes with tons of useful functions like:
+
+Function	Description
+len()	Length of object
+type()	Type of variable
+int(), float(), str()	Type conversion
+max(), min(), sum()	Math helpers
+input(), print()	I/O
+range()	Sequence generator
+sorted(), reversed()	Iterable manipulation
+
+Try:
+
+nums = [3, 7, 1, 5]
+print(max(nums))  # 7
+print(sorted(nums))  # [1, 3, 5, 7]
+
+🧰 Methods vs Functions (Quick Reminder)
+
+Functions → Standalone (e.g., len(name))
+
+Methods → Belong to objects (e.g., name.upper())
+
+✅ Example:
+
+# Function
+print(len("hello"))
+
+# Method
+print("hello".upper())
+
+🧩 Lambda (Anonymous) Functions
+
+Short, inline functions using the lambda keyword.
+
+square = lambda x: x ** 2
+print(square(5))   # 25
+
+
+Used often with functions like map() or filter().
+
+✅ Example:
+
+nums = [1, 2, 3, 4]
+squares = list(map(lambda x: x**2, nums))
+print(squares)   # [1, 4, 9, 16]
+
+⚡ Exercise Time
+
+Write a function area_of_circle(radius) that returns the area.
+(Use 3.1416 * radius ** 2)
+
+Write a function count_vowels(word) that counts how many vowels are in a string.
+
+Write a function that takes any number of numbers (*args) and returns the average.
+
+Bonus: Make a mini-calculator using functions — one for add, subtract, multiply, divide.
+
+🎯 Summary
+Concept	Example
+Define a function	def greet(name):
+Return a value	return result
+Default argument	def greet(name="friend"):
+Variable args	def add(*args):
+Keyword args	def info(**kwargs):
+Lambda	lambda x: x*2
+Method	"hi".upper()

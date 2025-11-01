@@ -1,0 +1,235 @@
+🧩 Lesson 6: Object-Oriented Programming (OOP)
+🧠 What is OOP?
+
+Object-Oriented Programming (OOP) is a way to organize your code by bundling:
+
+data (called attributes), and
+
+functions that act on that data (called methods)
+into objects created from classes.
+
+OOP makes code modular, reusable, and easier to manage as your projects grow.
+
+⚙️ Core Concepts of OOP
+
+There are 4 main pillars of OOP:
+
+Encapsulation
+
+Abstraction
+
+Inheritance
+
+Polymorphism
+
+Let’s go through each step by step 👇
+
+🧱 1. Class and Object
+🔹 Class
+
+A class is a blueprint for creating objects.
+
+🔹 Object
+
+An object is an instance of a class — a real thing created from that blueprint.
+
+✅ Example:
+
+class Dog:
+    def __init__(self, name, breed):
+        self.name = name      # attribute
+        self.breed = breed    # attribute
+
+    def bark(self):           # method
+        print(f"{self.name} says woof!")
+
+# Creating objects (instances)
+dog1 = Dog("Buddy", "Labrador")
+dog2 = Dog("Max", "Beagle")
+
+# Using methods
+dog1.bark()   # Buddy says woof!
+dog2.bark()   # Max says woof!
+
+🔹 The __init__() Method (Constructor)
+
+This is a special method that runs automatically when you create a new object.
+
+It’s used to initialize object data (attributes).
+
+✅ Example:
+
+class Car:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+
+🔹 The self Keyword
+
+self refers to the current instance of the class.
+
+It’s how a method accesses the object’s data.
+
+✅ Example:
+
+class Person:
+    def __init__(self, name):
+        self.name = name  # self refers to this specific person
+
+    def greet(self):
+        print(f"Hello, I’m {self.name}!")
+
+🧩 2. Encapsulation
+
+Bundling data and methods that work on that data within one unit (the class).
+It also means restricting direct access to some variables to protect data.
+
+✅ Example:
+
+class BankAccount:
+    def __init__(self, balance):
+        self.__balance = balance  # private variable (two underscores)
+
+    def deposit(self, amount):
+        self.__balance += amount
+
+    def get_balance(self):
+        return self.__balance
+
+account = BankAccount(1000)
+account.deposit(500)
+print(account.get_balance())  # 1500
+
+
+(__balance is private, so you can’t access it directly from outside.)
+
+🧩 3. Abstraction
+
+Hiding complex details and showing only what’s necessary.
+
+✅ Example:
+
+class CoffeeMachine:
+    def make_coffee(self):
+        self.__boil_water()
+        self.__brew()
+        print("☕ Coffee is ready!")
+
+    def __boil_water(self):
+        print("Boiling water...")
+
+    def __brew(self):
+        print("Brewing coffee...")
+
+machine = CoffeeMachine()
+machine.make_coffee()
+
+
+You can call make_coffee() but not the internal steps — that’s abstraction.
+
+🧩 4. Inheritance
+
+Allows one class to inherit attributes and methods from another class.
+
+✅ Example:
+
+class Animal:
+    def speak(self):
+        print("Some sound")
+
+class Dog(Animal):   # Dog inherits from Animal
+    def speak(self):
+        print("Woof!")
+
+dog = Dog()
+dog.speak()   # Woof!
+
+
+This prevents code repetition and promotes reusability.
+
+🧩 5. Polymorphism
+
+Different classes can have methods with the same name, but behave differently.
+
+✅ Example:
+
+class Bird:
+    def speak(self):
+        print("Chirp!")
+
+class Cat:
+    def speak(self):
+        print("Meow!")
+
+for animal in [Bird(), Cat()]:
+    animal.speak()
+
+
+Output:
+
+Chirp!
+Meow!
+
+
+They both have a speak() method — that’s polymorphism (same interface, different behavior).
+
+💡 Additional OOP Features in Python
+🔹 Class Variables vs Instance Variables
+class Student:
+    school = "UP"   # class variable (shared)
+    
+    def __init__(self, name):
+        self.name = name  # instance variable (unique per object)
+
+s1 = Student("Charisse")
+s2 = Student("Mika")
+
+print(s1.school)  # UP
+print(s2.name)    # Mika
+
+🔹 Class Methods and Static Methods
+class MathUtils:
+    @staticmethod
+    def add(a, b):
+        return a + b
+
+print(MathUtils.add(2, 3))  # 5
+
+
+@staticmethod: doesn’t use self
+
+@classmethod: used to modify class-level data
+
+🎯 Exercises
+
+Class Practice
+
+Create a Student class with attributes: name, age, and grade.
+
+Add a method introduce() that prints a short intro.
+
+Bank Simulation
+
+Build a BankAccount class.
+
+Add deposit, withdraw, and balance methods.
+
+Prevent negative balances using encapsulation.
+
+Inheritance Example
+
+Create a Vehicle class with a move() method.
+
+Create subclasses Car and Boat with their own move() versions.
+
+✅ Summary Table
+Concept	Description	Example
+Class	Blueprint for objects	class Dog:
+Object	Instance of class	dog1 = Dog()
+Attribute	Variable inside a class	self.name
+Method	Function inside a class	def bark(self):
+Encapsulation	Restricting access to data	__balance
+Inheritance	Reusing a parent class	class Dog(Animal):
+Polymorphism	Same method, different behavior	speak()
+Abstraction	Hiding complex code	private methods
+
