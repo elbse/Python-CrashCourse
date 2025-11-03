@@ -26,15 +26,18 @@ A name that stores a value.
 age = 25
 
 🧾 4. Data Types
-Type	Description	Example
-int	Whole number	5
-float	Decimal	3.14
-str	Text	"hello"
-bool	True/False	True
-list	Ordered, mutable collection	[1, 2, 3]
-tuple	Ordered, immutable collection	(1, 2, 3)
-set	Unordered, unique items	{1, 2, 3}
-dict	Key–value pairs	{"name": "Alice"}
+
+Type	    Description	                    Example
+int	        Whole number	                  5
+float	    Decimal	                        3.14
+str	        Text	                        "hello"
+bool	    True/False	                    True
+list	    Ordered, mutable collection	    [1, 2, 3]
+tuple	    Ordered, immutable collection	(1, 2, 3)
+set	        Unordered, unique items	        {1, 2, 3}
+dict	    Key–value pairs	            {"name": "Alice"}
+
+
 📘 5. Data Dictionary (dict)
 
 Stores data as key–value pairs.
@@ -227,9 +230,10 @@ greet("Charisse")  # ← "Charisse" is an argument
 So when you call the function, "Charisse" is the argument that gets assigned to the parameter name.
 
 🧠 In Short
-Term	Definition	Example
-Parameter	Variable in the function definition	def greet(name): → name
-Argument	Actual value passed during function call	greet("Charisse") → "Charisse"
+Term	                        Definition	                         Example
+Parameter	Variable in the function definition	            def greet(name): → name
+Argument	Actual value passed during function call	    greet("Charisse") → "Charisse"
+
 ⚙️ Visual Representation
 def greet(name):   # 'name' → parameter
     print(f"Hello, {name}!")

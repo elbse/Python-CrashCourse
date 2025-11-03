@@ -41,12 +41,12 @@ with open("data.txt", "r") as file:
 ➡️ No need for file.close(). Python closes it automatically!
 
 🧱 File Modes Summary
-Mode	Meaning	Behavior
-"r"	Read	Opens file; error if not found
-"w"	Write	Creates new file or overwrites existing
-"a"	Append	Adds content to the end of file
-"x"	Create	Creates new file, error if exists
-"r+"	Read + Write	Opens file for both reading and writing
+Mode	    Meaning	                  Behavior
+"r"	         Read	             Opens file; error if not found
+"w"	         Write	             Creates new file or overwrites existing
+"a"	         Append	             Adds content to the end of file
+"x"	         Create	             Creates new file, error if exists
+"r+"	   Read + Write	         Opens file for both reading and writing
 ⚡ PART 2: Exception Handling
 
 Even a small typo in input can crash your program 😬
