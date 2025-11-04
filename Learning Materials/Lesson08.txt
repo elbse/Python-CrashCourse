@@ -1,0 +1,144 @@
+🧠 Lesson 8 — Python Modules, Packages & Saving Data
+🧩 Part 1: Python Modules
+
+A module is just a Python file (.py) that contains reusable code (functions, classes, or variables).
+You can import and use it anywhere.
+
+Example:
+
+# file: greetings.py
+def say_hello(name):
+    print(f"Hello, {name}!")
+
+
+Then in another file:
+
+import greetings
+
+greetings.say_hello("Charisse")
+
+
+✅ Output:
+
+Hello, Charisse!
+
+
+You can also import only what you need:
+
+from greetings import say_hello
+say_hello("Charisse")
+
+🧱 Part 2: Packages
+
+A package is a folder that contains multiple modules plus an __init__.py file.
+
+Example:
+
+bank_app/
+│
+├── __init__.py
+├── account.py
+├── transactions.py
+└── main.py
+
+
+You can import modules like this:
+
+from bank_app.account import BankAccount
+
+
+👉 You’ll use this structure later when your projects get larger.
+
+💾 Part 3: Saving Data (Data Persistence)
+
+Now, let’s make your Bank App remember accounts after closing the program.
+
+✅ Option 1: Using a Text File (Simple Version)
+
+We’ll use the built-in open() function to save and load accounts.
+
+💡 Save Accounts to File
+def save_accounts(accounts):
+    with open("accounts.txt", "w") as file:
+        for acc in accounts:
+            file.write(f"{acc.account_number},{acc.owner},{acc._BankAccount__pin},{acc._BankAccount__balance}\n")
+
+💡 Load Accounts from File
+def load_accounts():
+    accounts = []
+    try:
+        with open("accounts.txt", "r") as file:
+            for line in file:
+                acc_num, owner, pin, balance = line.strip().split(",")
+                accounts.append(BankAccount(owner, pin, acc_num, float(balance)))
+    except FileNotFoundError:
+        print("⚠️ No saved accounts found. Starting fresh.")
+    return accounts
+
+✅ Option 2: Using JSON (Better & Cleaner)
+
+JSON (JavaScript Object Notation) is the most common way to store data — easy for both humans and programs to read.
+
+import json
+
+def save_accounts(accounts):
+    data = []
+    for acc in accounts:
+        data.append({
+            "owner": acc.owner,
+            "pin": acc._BankAccount__pin,
+            "account_number": acc.account_number,
+            "balance": acc._BankAccount__balance
+        })
+    with open("accounts.json", "w") as file:
+        json.dump(data, file, indent=4)
+
+
+To load them back:
+
+def load_accounts():
+    try:
+        with open("accounts.json", "r") as file:
+            data = json.load(file)
+            return [BankAccount(d["owner"], d["pin"], d["account_number"], d["balance"]) for d in data]
+    except FileNotFoundError:
+        print("⚠️ No saved accounts found. Starting fresh.")
+        return []
+
+
+Now, your accounts list will persist across sessions!
+
+🧠 How It Works
+
+Every time a user creates, deposits, or withdraws, call save_accounts(accounts)
+
+When the program starts, call accounts = load_accounts()
+
+Your app will now remember all accounts even after closing Python. 🎉
+
+⚙️ Optional: Combine with Error Handling
+
+Use try-except to handle input safely:
+
+try:
+    amount = float(input("Enter deposit amount: "))
+    acc.deposit(amount)
+    save_accounts(accounts)
+except ValueError:
+    print("❌ Invalid input. Please enter a number.")
+
+🧩 Summary
+Concept	Description	Example
+Module	Python file you can import	import greetings
+Package	Folder of modules with __init__.py	from bank_app.account import BankAccount
+Persistence	Saving data so it’s not lost	Using .txt or .json
+JSON	Easy format for structured data	json.dump() / json.load()
+
+
+✅ Mini Challenge
+
+Update your Bank App (V2) to:
+
+Load accounts from accounts.json on start
+Save every time a user deposits, withdraws, or creates a new account
+Handle errors (e.g., missing file, invalid input)
