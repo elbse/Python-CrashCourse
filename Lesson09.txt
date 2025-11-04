@@ -1,0 +1,139 @@
+🧠 Lesson 9: Python Security Basics (Hashing & Encapsulation)
+
+In this lesson, you’ll learn how to:
+
+🔒 Protect sensitive info (like PINs)
+
+💾 Securely store account data
+
+🧩 Use Python’s built-in hashlib for hashing
+
+⚙️ Understand why hashing is better than storing plaintext
+
+🔍 Concept 1: What Is Hashing?
+
+Hashing = turning any piece of data (like a PIN or password) into a fixed, irreversible value.
+
+Example:
+
+import hashlib
+
+pin = "1234"
+hashed_pin = hashlib.sha256(pin.encode()).hexdigest()
+print(hashed_pin)
+
+
+Output:
+
+03ac674216f3e15c761ee1a5e255f067953623c8f9664fbb3bdf9b8d5e4e0d1c
+
+
+That’s your hashed PIN.
+Even if someone opens your accounts.json, they’ll never see "1234".
+They’ll only see that long, scrambled string.
+
+🧩 Concept 2: How It Works in Our Bank System
+
+Currently, your class stores:
+
+self.__pin = pin
+
+
+We’ll change it so:
+
+When you create an account, it hashes the PIN before storing.
+
+When you log in, it hashes the input PIN and compares hashes (instead of plaintext).
+
+🔐 Here’s the Updated BankAccount Class (with Hashing)
+import hashlib
+
+class BankAccount:
+    def __init__(self, owner, pin, account_number, balance=0):
+        self.owner = owner
+        self.__pin_hash = self.hash_pin(pin)
+        self.account_number = account_number
+        self.__balance = balance
+
+    # --- Security Methods ---
+    def hash_pin(self, pin):
+        return hashlib.sha256(pin.encode()).hexdigest()
+
+    def verify_pin(self, pin):
+        return self.hash_pin(pin) == self.__pin_hash
+
+    # --- Banking Methods ---
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+            print(f"✅ Deposited {amount:.2f} successfully.")
+        else:
+            print("❌ Deposit amount must be positive.")
+
+    def withdraw(self, amount):
+        if amount > 0 and amount <= self.__balance:
+            self.__balance -= amount
+            print(f"💸 Withdrew {amount:.2f} successfully.")
+        else:
+            print("❌ Invalid or insufficient balance.")
+
+    def check_balance(self):
+        print(f"💰 Current balance: {self.__balance:.2f}")
+
+    def to_dict(self):
+        return {
+            "owner": self.owner,
+            "pin_hash": self.__pin_hash,
+            "account_number": self.account_number,
+            "balance": self.__balance
+        }
+
+💾 Then Modify Your Load/Save Functions
+
+Since we renamed pin → pin_hash, update your persistence code:
+
+def load_accounts(filename="accounts.json"):
+    try:
+        with open(filename, "r") as file:
+            data = json.load(file)
+            accounts = []
+            for d in data:
+                acc = BankAccount(d["owner"], "temp", d["account_number"], d["balance"])
+                acc._BankAccount__pin_hash = d["pin_hash"]  # directly assign saved hash
+                accounts.append(acc)
+            return accounts
+    except FileNotFoundError:
+        return []
+
+
+💡 This line:
+
+acc._BankAccount__pin_hash = d["pin_hash"]
+
+
+is called name mangling, a safe way to access a private variable.
+
+🔎 What the accounts.json Now Looks Like
+
+Example after creating one account:
+
+[
+    {
+        "owner": "Charisse",
+        "pin_hash": "03ac674216f3e15c761ee1a5e255f067953623c8f9664fbb3bdf9b8d5e4e0d1c",
+        "account_number": "1001",
+        "balance": 500.0
+    }
+]
+
+
+✅ PIN is hidden.
+✅ Still readable for your program.
+✅ Hackers can’t reverse the hash.
+
+🧠 Lesson Recap
+Concept	Meaning
+Hashing	One-way data protection (cannot be reversed)
+Encapsulation	Protecting internal class data (like __balance)
+Hashlib	Python’s built-in library for hashing (MD5, SHA1, SHA256...)
+Security in OOP	Hide sensitive info and restrict direct access
