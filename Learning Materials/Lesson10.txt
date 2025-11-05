@@ -1,0 +1,117 @@
+🧠 Lesson 10 Overview: File Handling in Python
+🔍 What You’ll Learn
+
+How to open, write, and read files in Python
+
+The difference between text files and JSON files
+
+How to log transactions safely
+
+Implementing a mini transaction history feature in your Bank System
+
+🧩 Concept 1: Basic File Operations
+Writing to a file
+with open("log.txt", "w") as file:
+    file.write("Hello, file!")
+
+
+📝 with open(..., "w") → opens a file for writing
+If the file doesn’t exist, Python creates it.
+
+Appending to a file
+with open("log.txt", "a") as file:
+    file.write("New line added\n")
+
+
+🧱 "a" means append → add new data without deleting old data.
+
+Reading from a file
+with open("log.txt", "r") as file:
+    content = file.read()
+    print(content)
+
+🧩 Concept 2: Adding Transaction Logs
+
+Now we’ll extend your BankAccount class so every transaction is recorded automatically.
+
+✅ Add a log_transaction() method
+from datetime import datetime
+
+class BankAccount:
+    def __init__(self, owner, pin, account_number, balance=0):
+        self.owner = owner
+        self.__pin_hash = self.hash_pin(pin)
+        self.account_number = account_number
+        self.__balance = balance
+
+    def log_transaction(self, action, amount):
+        """Logs each transaction to a file named transactions.txt"""
+        with open("transactions.txt", "a") as file:
+            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            file.write(f"[{timestamp}] {self.owner} ({self.account_number}) - {action}: ₱{amount:.2f}\n")
+
+    # Update deposit method
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+            self.log_transaction("Deposit", amount)
+            print(f"✅ Deposited ₱{amount:.2f}")
+        else:
+            print("❌ Deposit must be a positive number.")
+
+    # Update withdraw method
+    def withdraw(self, amount):
+        if amount > 0 and amount <= self.__balance:
+            self.__balance -= amount
+            self.log_transaction("Withdrawal", amount)
+            print(f"💸 Withdrew ₱{amount:.2f}")
+        else:
+            print("❌ Invalid or insufficient funds.")
+
+🧩 Concept 3: View Transaction History
+
+Let’s allow users to view their logs.
+
+Add this method:
+
+def view_transactions(self):
+    print(f"\n📜 Transaction history for {self.owner}:")
+    found = False
+    with open("transactions.txt", "r") as file:
+        for line in file:
+            if self.account_number in line:
+                print(line.strip())
+                found = True
+    if not found:
+        print("No transactions found.")
+
+✅ Add Menu Option for Transaction History
+
+Inside your Account Menu, add:
+
+print("5. View Transaction History")
+print("6. Logout")
+
+...
+
+elif user_choice == "5":
+    acc.view_transactions()
+elif user_choice == "6":
+    print("👋 Logged out successfully.")
+    break
+
+📄 transactions.txt (Example Output)
+[2025-10-29 19:21:43] Charisse (1001) - Deposit: ₱500.00
+[2025-10-29 19:25:11] Charisse (1001) - Withdrawal: ₱100.00
+[2025-10-29 19:27:32] Mark (1002) - Deposit: ₱1000.00
+
+🧠 Lesson Recap
+Concept	Description
+open()	Opens files for reading or writing
+"w", "a", "r"	Modes: write, append, read
+with	Automatically closes files safely
+Transaction Logs	Track user actions persistently
+File Organization	Useful for debugging and audit trail
+
+🔥 Mini Challenge (Optional)
+Add a "Delete Transaction History" option that clears only one account’s logs, not the entire file.
