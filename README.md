@@ -47,7 +47,7 @@ I’m using this space to track my progress, take notes, and commit code example
 - [x] Conditional Statements (`if`, `elif`, `else`)  
 - [x] Loops (`for`, `while`)  
 - [ ] Type Conversion and Casting  
-- [ ] Comments and Code Style (PEP 8)  
+- [x] Comments and Code Style (PEP 8)  
 
 </details>
 
@@ -72,10 +72,10 @@ I’m using this space to track my progress, take notes, and commit code example
 <details>
 <summary>🏗️ <strong>Object-Oriented Programming (OOP)</strong></summary>
 
-- [ ] Classes and objects  
+- [x] Classes and objects  
 - [ ] `__init__` constructor  
 - [ ] Instance vs class variables  
-- [ ] Methods and attributes  
+- [x] Methods and attributes  
 - [ ] Inheritance and polymorphism  
 - [ ] Encapsulation and abstraction  
 - [ ] Practical mini-project: **Bank Account Simulator**  
