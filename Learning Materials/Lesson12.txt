@@ -1,0 +1,53 @@
+🧠 Lesson 12: Python Modules & Packages
+🎯 Goal:
+
+Learn how to organize large programs (like your Bank System) into separate files
+instead of keeping everything inside one giant .py file.
+
+🧩 Concept 1: What Is a Module?
+
+A module is just a Python file (.py) that contains functions, classes, or variables that you can import into another file.
+
+Example:
+
+# math_utils.py
+def add(a, b):
+    return a + b
+
+
+Then in another file:
+
+# main.py
+import math_utils
+
+result = math_utils.add(5, 3)
+print(result)  # 8
+
+🧩 Concept 2: What Is a Package?
+
+A package is a folder containing multiple Python modules, plus a special file named __init__.py.
+
+Example folder structure:
+
+bank_system/
+│
+├── bank/                 ← this is a package
+│   ├── __init__.py
+│   ├── account.py
+│   ├── utils.py
+│
+└── main.py
+
+🧩 Concept 3: Let’s Modularize Your Bank System
+
+We’ll split your project into parts:
+
+bank_system/
+│
+├── bank/
+│   ├── __init__.py
+│   ├── account.py        ← BankAccount class
+│   ├── storage.py        ← load/save accounts (JSON)
+│   ├── transaction.py    ← log & view transactions
+│
+└── main.py               ← main program (menus)
