@@ -1,0 +1,115 @@
+🧠 Lesson 11: Error Handling & Custom Exceptions
+🎯 Goal:
+
+Make your program bulletproof — no crashes when users make mistakes.
+Instead, your app should respond gracefully, with clear error messages.
+
+🔍 What Are Exceptions?
+
+An exception is an error that stops your program from running.
+For example:
+
+age = int(input("Enter age: "))
+
+
+If you type "hello", Python crashes with:
+
+ValueError: invalid literal for int() with base 10
+
+
+We’ll fix that using try/except.
+
+🧩 Basic Try/Except Example
+try:
+    age = int(input("Enter your age: "))
+    print("You are", age, "years old.")
+except ValueError:
+    print("❌ Please enter a valid number.")
+
+
+✅ No more crashing — the user just gets a friendly message.
+
+🔁 Multiple Exceptions
+
+You can handle multiple types of errors:
+
+try:
+    x = int(input("Enter a number: "))
+    result = 10 / x
+    print(result)
+except ValueError:
+    print("❌ Please enter a valid number.")
+except ZeroDivisionError:
+    print("❌ You can’t divide by zero.")
+
+🔄 The finally Block
+
+finally runs no matter what — perfect for cleanup tasks (like closing files).
+
+try:
+    f = open("test.txt", "r")
+    data = f.read()
+except FileNotFoundError:
+    print("❌ File not found.")
+finally:
+    f.close()
+
+🧩 Using try/except in Your Bank System
+
+Here’s how to protect deposit and withdraw inputs:
+
+elif user_choice == "1":  # Deposit
+    try:
+        amount = float(input("Enter deposit amount: "))
+        acc.deposit(amount)
+    except ValueError:
+        print("❌ Please enter a valid numeric amount.")
+
+
+and:
+
+elif user_choice == "2":  # Withdraw
+    try:
+        amount = float(input("Enter withdrawal amount: "))
+        acc.withdraw(amount)
+    except ValueError:
+        print("❌ Invalid input. Enter a valid number.")
+
+💡 Bonus: Create Custom Exceptions
+
+You can make your own error types for better clarity.
+
+Example:
+
+class InsufficientFundsError(Exception):
+    pass
+
+class InvalidAmountError(Exception):
+    pass
+
+
+Then use them:
+
+def withdraw(self, amount):
+    if amount <= 0:
+        raise InvalidAmountError("Withdrawal must be positive.")
+    elif amount > self.__balance:
+        raise InsufficientFundsError("Not enough funds.")
+    else:
+        self.__balance -= amount
+        print(f"✅ Withdrew ₱{amount:.2f}")
+
+
+And catch them:
+
+try:
+    acc.withdraw(10000)
+except InsufficientFundsError as e:
+    print(f"❌ {e}")
+
+🧠 Lesson Recap
+Concept	Description
+try/except	Catches errors gracefully
+finally	Runs cleanup code
+Custom Exceptions	Define app-specific error types
+User Input Validation	Prevents crashes from bad input
