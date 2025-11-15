@@ -28,3 +28,8 @@ c.speak()
 d = Dog("Rex", 5)
 d.show()
 d.speak()
+
+# Example of a ternary conditional operator in Python
+age = 12
+message = "Eligible" if age >=18 else "Not Eligible"
+print(message)
