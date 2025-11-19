@@ -1,4 +1,5 @@
 🧠 Lesson 10 Overview: File Handling in Python
+
 🔍 What You’ll Learn
 
 How to open, write, and read files in Python

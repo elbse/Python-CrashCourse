@@ -1,4 +1,5 @@
 🧠 Lesson 8 — Python Modules, Packages & Saving Data
+
 🧩 Part 1: Python Modules
 
 A module is just a Python file (.py) that contains reusable code (functions, classes, or variables).

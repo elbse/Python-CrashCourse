@@ -1,4 +1,5 @@
 🧠 Lesson 11: Error Handling & Custom Exceptions
+
 🎯 Goal:
 
 Make your program bulletproof — no crashes when users make mistakes.

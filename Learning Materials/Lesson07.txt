@@ -47,6 +47,7 @@ Mode	    Meaning	                  Behavior
 "a"	         Append	             Adds content to the end of file
 "x"	         Create	             Creates new file, error if exists
 "r+"	   Read + Write	         Opens file for both reading and writing
+
 ⚡ PART 2: Exception Handling
 
 Even a small typo in input can crash your program 😬
