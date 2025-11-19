@@ -60,7 +60,7 @@ I’m using this space to track my progress, take notes, and commit code example
 - [x] Parameters and return values  
 - [ ] Default and keyword arguments  
 - [ ] Lists and list operations  
-- [ ] Tuples, Sets, and Dictionaries  
+- [x] Tuples, Sets, and Dictionaries  
 - [ ] List comprehensions  
 - [ ] Nested data structures  
 - [x] Practical mini-project: **Simple Calculator**  
@@ -76,8 +76,8 @@ I’m using this space to track my progress, take notes, and commit code example
 - [ ] `__init__` constructor  
 - [ ] Instance vs class variables  
 - [x] Methods and attributes  
-- [ ] Inheritance and polymorphism  
-- [ ] Encapsulation and abstraction  
+- [x] Inheritance and polymorphism  
+- [x] Encapsulation and abstraction  
 - [ ] Practical mini-project: **Bank Account Simulator**  
 
 </details>
