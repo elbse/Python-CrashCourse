@@ -1,0 +1,7 @@
+Machine Learning is a process of teaching machine how to learn.
+
+3 Types on How Machine Learning learn
+
+1. Unsupervised Learning
+2. Supervised Learning
+3. Reinforcement Learning
